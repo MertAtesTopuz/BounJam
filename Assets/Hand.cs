@@ -12,7 +12,7 @@ public class Hand : MonoBehaviour
 
     void Start()
     {
-        door = GameObject.FindGameObjectWithTag("Door").GetComponent<Door>();
+        //door = GameObject.FindGameObjectWithTag("Door").GetComponent<Door>();
     }
 
     void Update()
