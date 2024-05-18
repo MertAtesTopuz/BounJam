@@ -6,6 +6,8 @@ public class Door : MonoBehaviour
 {
     public bool doorOpen;
     private Animator anim;
+    public Animator logAnim;
+    public bool isCut;
 
     // Start is called before the first frame update
     void Start()
@@ -17,5 +19,11 @@ public class Door : MonoBehaviour
     void Update()
     {
         anim.SetBool("isFall", doorOpen);
+
+        if(doorOpen == true && isCut == false)
+        {
+            logAnim.SetTrigger("isAttack");
+            isCut = true;
+        }
     }
 }
