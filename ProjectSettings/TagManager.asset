@@ -4,9 +4,14 @@
 TagManager:
   serializedVersion: 2
   tags:
+<<<<<<< Updated upstream
   - Door
   - PickUp
   - Lock
+=======
+  - Ground
+  - PickUp
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
@@ -15,7 +20,12 @@ TagManager:
   - Water
   - UI
   - 
+<<<<<<< Updated upstream
   - Ground
+=======
+  - 
+  - 
+>>>>>>> Stashed changes
   - 
   - 
   - 
