@@ -6,7 +6,12 @@ TagManager:
   tags:
   - Ship
   - PickUp
+<<<<<<< Updated upstream
   - Ground
+=======
+  - Lock
+  - Door
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX

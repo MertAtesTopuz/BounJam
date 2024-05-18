@@ -7,6 +7,13 @@ public class Hand : MonoBehaviour
     public GameObject item;
     public bool canPick;
     public GameObject itemHolder;
+    public bool hammer;
+    public Door door;
+
+    void Start()
+    {
+        door = GameObject.FindGameObjectWithTag("Door").GetComponent<Door>();
+    }
 
     void Update()
     {
@@ -36,6 +43,14 @@ public class Hand : MonoBehaviour
                     item = null;
                 }
             }
+
+            if(other.gameObject.CompareTag("Lock"))
+            {
+                if (hammer && door != null)
+                {
+                    door.doorOpen = true;
+                }
+            }
         }
         
     }
@@ -60,6 +75,14 @@ public class Hand : MonoBehaviour
                     item.GetComponent<Rigidbody>().isKinematic = false;
                     canPick = false;
                     item = null;
+                }
+            }
+
+            if(other.gameObject.CompareTag("Lock"))
+            {
+                if (hammer && door != null)
+                {
+                    door.doorOpen = true;
                 }
             }
         }
