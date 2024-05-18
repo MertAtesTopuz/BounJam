@@ -4,14 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Ship
-  - PickUp
-<<<<<<< Updated upstream
-  - Ground
-=======
-  - Lock
   - Door
->>>>>>> Stashed changes
+  - PickUp
+  - Lock
   layers:
   - Default
   - TransparentFX
@@ -20,8 +15,8 @@ TagManager:
   - Water
   - UI
   - 
-  - Hit
   - Ground
+  - 
   - 
   - 
   - 
