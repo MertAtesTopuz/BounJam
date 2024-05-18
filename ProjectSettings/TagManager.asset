@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ship
   - PickUp
+  - Ground
   layers:
   - Default
   - TransparentFX
