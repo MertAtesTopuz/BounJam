@@ -72,6 +72,7 @@ public class Hand : MonoBehaviour
                 else
                 {
                     item.transform.SetParent(itemHolder.transform);
+                    item.transform.Rotate(0, 0, 0);
                     item.GetComponent<Rigidbody>().isKinematic = false;
                     canPick = false;
                     item = null;

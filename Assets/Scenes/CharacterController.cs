@@ -17,7 +17,7 @@ public class CharacterController : MonoBehaviour
     private bool isGrounded;
     public Transform groundCheck;
     public float groundDistance = 0.4f;
-    public LayerMask groundMask;
+    public LayerMask groundMask, plankLayer;
 
     private Rigidbody rb;
     #endregion
