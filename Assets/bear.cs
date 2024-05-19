@@ -5,6 +5,9 @@ using UnityEngine;
 public class bear : MonoBehaviour
 {
     private Animator anim;
+
+    public GameObject bearr;
+
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -14,5 +17,10 @@ public class bear : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void Animation()
+    {
+        anim.SetBool("run", bearr.transform.position != Vector3.zero);
     }
 }

@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class CharacterController : MonoBehaviour
 {
-
     #region Movement & Physic
     public static CharacterController instance;
 
@@ -20,12 +19,13 @@ public class CharacterController : MonoBehaviour
     public LayerMask groundMask, plankLayer;
 
     private Rigidbody rb;
+    private bool movement = true;
+    private AudioSource walkAudioSource;
+    private AudioSource jumpAudioSource;
     #endregion
 
     #region Health
-
     public bool isAlive = true;
-
     #endregion
 
     private Scene currentScene;
@@ -33,6 +33,10 @@ public class CharacterController : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        // Get the AudioSource components
+        AudioSource[] audioSources = GetComponents<AudioSource>();
+        walkAudioSource = audioSources[0];
+        jumpAudioSource = audioSources[1];
     }
 
     void Start()
@@ -49,19 +53,37 @@ public class CharacterController : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
-        if (consoleCheck == false)
+        movement = FindAnyObjectByType<log>().canMove;
+
+        if (consoleCheck == false && movement == true)
         {
             Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput) * moveSpeed * Time.deltaTime;
 
             transform.Translate(movement);
 
-            if (Input.GetKeyDown(KeyCode.Space))
+            // Play walking sound if moving and grounded
+            if ((horizontalInput != 0 || verticalInput != 0) && isGrounded)
+            {
+                if (!walkAudioSource.isPlaying)
+                {
+                    walkAudioSource.Play();
+                }
+            }
+            else
+            {
+                walkAudioSource.Stop();
+            }
+
+            // Play jumping sound if space is pressed
+            if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
             {
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                jumpAudioSource.Play();
             }
         }
         else
         {
+            walkAudioSource.Stop();
             return;
         }
 
@@ -84,7 +106,7 @@ public class CharacterController : MonoBehaviour
 
     private void OnCollisionExit(Collision other)
     {
-        if(other.gameObject.CompareTag("Ground"))
+        if (other.gameObject.CompareTag("Ground"))
         {
             isGrounded = false;
         }
@@ -92,7 +114,7 @@ public class CharacterController : MonoBehaviour
 
     private void isDead()
     {
-        if(isAlive == false)
+        if (isAlive == false)
         {
             isAlive = true;
 
