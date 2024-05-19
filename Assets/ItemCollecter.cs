@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class ItemCollecter : MonoBehaviour
 {
-    public bool kaira, otuzbir;
+    public bool stone, stick, rope;
     public GameObject kairaStatu;
 
     void Update()
     {
-        if (kaira && otuzbir)
+        if (stone && stick && rope)
         {
             kairaStatu.SetActive(true);
         }
@@ -19,18 +19,26 @@ public class ItemCollecter : MonoBehaviour
     {
         if(other.CompareTag("PickUp"))
         {
-            if(other.GetComponent<itemChanger>().kaira == true)
+            if (other.GetComponent<itemChanger>()!= null)
             {
-                kaira = true;
-                Destroy(other.gameObject);
-            }
+                if(other.GetComponent<itemChanger>().stone == true)
+                {
+                    stone = true;
+                    Destroy(other.gameObject);
+                }
 
-            if(other.GetComponent<itemChanger>().otuzbir == true)
-            {
-                otuzbir = true;
-                Destroy(other.gameObject);
+                if(other.GetComponent<itemChanger>().stick == true)
+                {
+                    stick = true;
+                    Destroy(other.gameObject);
+                }
+                
+                if(other.GetComponent<itemChanger>().rope == true)
+                {
+                    rope = true;
+                    Destroy(other.gameObject);
+                }
             }
-            
         }
     }
 }

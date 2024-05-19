@@ -9,6 +9,7 @@ TagManager:
   - Lock
   - Ground
   - Destroy
+  - Rope
   layers:
   - Default
   - TransparentFX

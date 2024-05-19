@@ -59,6 +59,13 @@ public class Hand : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.E))
         {
+            if(other.gameObject.CompareTag("Lock"))
+            {
+                if (hammer && door != null)
+                {
+                    door.doorOpen = true;
+                }
+            }
             if (other.gameObject.CompareTag("PickUp") )
             {
                 if(canPick == false && item == null)
@@ -77,15 +84,13 @@ public class Hand : MonoBehaviour
                     canPick = false;
                     item = null;
                 }
-            }
 
-            if(other.gameObject.CompareTag("Lock"))
-            {
-                if (hammer && door != null)
+                if(other.gameObject.GetComponent<baltaControl>() != null)
                 {
-                    door.doorOpen = true;
+                    hammer = true;
                 }
             }
+
         }
     }
 }

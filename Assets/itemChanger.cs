@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class itemChanger : MonoBehaviour
 {
-    public bool kaira, otuzbir;
+    public bool stone, rope, stick;
 }
