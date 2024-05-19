@@ -26,7 +26,7 @@ public class EnemyMovement : MonoBehaviour
         //float distance = transform.position.z - targetObj.transform.position.z;
         if(area.canTraget == true )
         {
-            transform.position = Vector3.MoveTowards(this.transform.position, targetObj.position, 3 * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(this.transform.position, targetObj.position, 6 * Time.deltaTime);
             
         }
         transform.LookAt(targetObj);

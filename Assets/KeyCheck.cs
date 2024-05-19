@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class KeyCheck : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject text, text2;
+
+    private bool isFound;
+
+    private void Update()
     {
-        
+        if (FindAnyObjectByType<Key>() != null)
+        isFound = FindAnyObjectByType<Key>().key;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if(isFound == false)
+        {
+            text.SetActive(true);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        text.SetActive(false);
     }
 }
