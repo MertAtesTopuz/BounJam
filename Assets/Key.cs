@@ -12,7 +12,14 @@ public class Key : MonoBehaviour
         {
             key = true;
 
-            Destroy(gameObject);
+            StartCoroutine(Wait());
         }
+    }
+
+    private IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(1);
+
+        Destroy(gameObject);    
     }
 }

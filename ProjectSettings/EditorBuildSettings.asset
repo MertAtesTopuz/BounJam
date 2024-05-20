@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: d9b272523a6924418bf428acf9100f78
+  - enabled: 1
+    path: Assets/Scenes/BoraMain.unity
+    guid: 36d691441a64a48e3a18a5ac0d366e4a
   m_configObjects: {}

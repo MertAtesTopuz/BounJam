@@ -10,6 +10,8 @@ public class MenuManager : MonoBehaviour
     public GameObject creditsScreen;
     public GameObject mainScreen;
 
+    public GameObject storyPanel;
+
     public void Play()
     {   
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex +1);
@@ -34,12 +36,12 @@ public class MenuManager : MonoBehaviour
     public void Creadits()
     {
         mainScreen.SetActive(false);
-        creditsScreen.SetActive(true);
+        storyPanel.SetActive(true);
     }
 
     public void cre2Menu()
     {
         mainScreen.SetActive(true);
-        creditsScreen.SetActive(false);
+        storyPanel.SetActive(false);
     }
 }

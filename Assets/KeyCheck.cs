@@ -4,21 +4,30 @@ using UnityEngine;
 
 public class KeyCheck : MonoBehaviour
 {
-    public GameObject text, text2;
+    public GameObject text, text2, panel;
 
-    private bool isFound;
+    private bool isFound, canEscape;
 
     private void Update()
     {
+        Debug.Log(isFound);
+
         if (FindAnyObjectByType<Key>() != null)
         isFound = FindAnyObjectByType<Key>().key;
+        
+        canEscape = isFound;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(isFound == false)
+        if(canEscape == false)
         {
             text.SetActive(true);
+        }
+
+        if(canEscape == true)
+        {
+            panel.SetActive(true);
         }
     }
 

@@ -118,7 +118,7 @@ public class CharacterController : MonoBehaviour
         {
             isAlive = true;
 
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
         }
     }
 }
